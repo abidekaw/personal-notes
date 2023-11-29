@@ -9,6 +9,7 @@ function Header({ onSearch }) {
           type="search"
           placeholder="Cari catatan ..."
           onChange={(e) => onSearch(e.target.value)}
+          autocomplate="off"
         />
       </div>
     </header>

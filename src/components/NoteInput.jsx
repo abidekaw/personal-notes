@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "./Button";
+import autoBind from "react-autobind";
 
 class NoteInput extends Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class NoteInput extends Component {
       body: "",
     };
     this.maxLength = 50;
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onHandleChange = this.onHandleChange.bind(this);
+
+    autoBind(this);
   }
 
   onSubmit(e) {
@@ -49,12 +50,14 @@ class NoteInput extends Component {
             placeholder="Ini adalah judul ..."
             onChange={this.onHandleChange}
             required
+            autocomplate="off"
           />
           <textarea
             value={this.state.body}
             placeholder="Tuliskan catatanmu di sini ..."
             onChange={(e) => this.setState({ body: e.target.value })}
             required
+            autocomplate="off"
           ></textarea>
           <Button type="submit">Buat</Button>
         </form>
