@@ -1,8 +1,15 @@
 import React from "react";
 import Button from "./Button";
 
-function NoteItem(props) {
-  const { id, title, createdAt, body, onDelete, onArchive, isArchived } = props;
+function NoteItem({
+  id,
+  title,
+  createdAt,
+  body,
+  onDelete,
+  onArchive,
+  isArchived,
+}) {
   return (
     <div className="note-item">
       <div className="note-item__content">

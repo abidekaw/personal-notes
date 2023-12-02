@@ -1,14 +1,14 @@
 import React from "react";
 import NoteItem from "./NoteItem";
-import NoteView from "./NoteView";
+import NoteListSection from "./NoteListSection";
 
 function NoteList({ notes, onDelete, onArchive }) {
   const activedNotes = notes.filter((note) => !note.archived);
   const archivedNotes = notes.filter((note) => note.archived);
 
   return (
-    <React.Fragment>
-      <NoteView status="Catatan Aktif" activedNotes={activedNotes}>
+    <>
+      <NoteListSection status="Catatan Aktif" activedNotes={activedNotes}>
         {activedNotes.map((note) => (
           <NoteItem
             key={note.id}
@@ -18,9 +18,9 @@ function NoteList({ notes, onDelete, onArchive }) {
             isArchived={note.archive}
           />
         ))}
-      </NoteView>
+      </NoteListSection>
 
-      <NoteView status="Arsip" archivedNotes={archivedNotes}>
+      <NoteListSection status="Arsip" archivedNotes={archivedNotes}>
         {archivedNotes.map((note) => (
           <NoteItem
             key={note.id}
@@ -30,8 +30,8 @@ function NoteList({ notes, onDelete, onArchive }) {
             isArchived={!note.archive}
           />
         ))}
-      </NoteView>
-    </React.Fragment>
+      </NoteListSection>
+    </>
   );
 }
 

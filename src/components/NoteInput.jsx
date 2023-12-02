@@ -24,7 +24,6 @@ class NoteInput extends Component {
   }
 
   onHandleChange(e) {
-    // console.log(e.target.value);
     const charInput = e.target.value;
     return this.setState(() => {
       if (this.maxLength <= charInput.length) {

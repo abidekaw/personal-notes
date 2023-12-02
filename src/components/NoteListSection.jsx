@@ -1,8 +1,7 @@
 import React from "react";
 import EmptyMessage from "./EmptyMessage";
 
-export default function NoteView(props) {
-  const { status, children, activedNotes, archivedNotes } = props;
+function NoteListSection({ status, children, activedNotes, archivedNotes }) {
   return (
     <section>
       <h2>{status}</h2>
@@ -13,3 +12,5 @@ export default function NoteView(props) {
     </section>
   );
 }
+
+export default NoteListSection;
