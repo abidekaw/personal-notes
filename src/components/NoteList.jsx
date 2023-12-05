@@ -2,7 +2,7 @@ import React from "react";
 import NoteItem from "./NoteItem";
 import NoteListSection from "./NoteListSection";
 
-function NoteList({ notes, onDelete, onArchive }) {
+function NoteList({ notes, onDelete, onArchive, onUpdated }) {
   const activedNotes = notes.filter((note) => !note.archived);
   const archivedNotes = notes.filter((note) => note.archived);
 
@@ -16,6 +16,7 @@ function NoteList({ notes, onDelete, onArchive }) {
             onDelete={onDelete}
             onArchive={onArchive}
             isArchived={note.archive}
+            onUpdated={onUpdated}
           />
         ))}
       </NoteListSection>
@@ -28,6 +29,7 @@ function NoteList({ notes, onDelete, onArchive }) {
             onDelete={onDelete}
             onArchive={onArchive}
             isArchived={!note.archive}
+            onUpdated={onUpdated}
           />
         ))}
       </NoteListSection>

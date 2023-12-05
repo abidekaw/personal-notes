@@ -10,7 +10,6 @@ class NoteInput extends Component {
       body: "",
     };
     this.maxLength = 50;
-
     autoBind(this);
   }
 
@@ -25,14 +24,11 @@ class NoteInput extends Component {
 
   onHandleChange(e) {
     const charInput = e.target.value;
-    return this.setState(() => {
-      if (this.maxLength <= charInput.length) {
-        return { title: charInput.slice(0, this.maxLength) };
-      }
-      return {
-        title: e.target.value,
-      };
-    });
+    this.setState(() =>
+      this.maxLength <= charInput.length
+        ? { title: charInput.slice(0, this.maxLength) }
+        : { title: e.target.value }
+    );
   }
 
   render() {

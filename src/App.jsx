@@ -58,6 +58,17 @@ class App extends Component {
     );
   }
 
+  onUpdateHandle(id, updatedBody) {
+    this.setState(
+      (prevState) => ({
+        notes: prevState.notes.map((note) =>
+          note.id === id ? { ...note, body: updatedBody } : note
+        ),
+      }),
+      () => this.saveNotesToLocalStorage(this.state.notes)
+    );
+  }
+
   onSearchHandle(keyword) {
     this.setState({ searchKeyword: keyword });
   }
@@ -77,6 +88,7 @@ class App extends Component {
             notes={filteredNotes}
             onDelete={this.onDeleteHandle}
             onArchive={this.onArchiveHandle}
+            onUpdated={this.onUpdateHandle}
           />
         </main>
       </React.Fragment>
